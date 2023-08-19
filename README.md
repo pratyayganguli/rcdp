@@ -66,6 +66,8 @@ This will retrieve the keys that start with id 1.
 
 scan {slot_value} match customer:1*
 
+It will return a slot value available for next operation.
+
 ```
 scan 0 match customer:1*
 ```
@@ -78,6 +80,37 @@ scan 2 match customer:1* count 5
 
 ![scan example](assets/images/2.png)
 
+Deleting keys:
+1. Del (Blocking operation)
+2. Unlink (Async non-blocking command)
 
-         
+Example :
+
+```
+unlink customer:1000
+```
+
+Exists command - to check if the key already exists and then set the value.
+
+```
+exists customer:100:Pratyay
+```
+
+Setting the value of the key only if the value exists:
+
+```
+set customer:2000 pratyay NX
+set customer:2000 jay XX
+```
+
+**Note :**
+
+In the second line the value will only be set if the key exists.
+
+Again, NX is used to set if the key does not exist set the key value.
+
+![NX and XX](assets/images/3.png)
+
+
+
 
